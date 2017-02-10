@@ -3,31 +3,31 @@ package com.example.holamundoandroid;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class SegundoActivity extends AppCompatActivity {
 
-    private ImageButton button;
-    private EditText editText;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_segundo);
 
-        button = (ImageButton) findViewById(R.id.button);
-        editText = (EditText) findViewById(R.id.editText);
+        button = (Button) findViewById(R.id.BtnVolver);
+
+        String nombre = getIntent().getStringExtra("nombre");
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText("Hola " + nombre);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = editText.getText().toString();
-                Log.i("PRUEBA NOMBRE", nombre);
-                Intent intent = new Intent(MainActivity.this,SegundoActivity.class);
-                intent.putExtra("nombre", nombre);
+                Intent intent = new Intent(SegundoActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
