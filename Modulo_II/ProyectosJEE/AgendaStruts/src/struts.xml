@@ -1,0 +1,62 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" 
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package strict-method-invocation="false" name="ejemplo" extends="struts-default">
+		<!--  <default-action-ref name="underConstruction"/>  -->
+		<interceptors>
+			<interceptor name="simple" class="interceptores.SimpleInterceptor"/>
+			
+		</interceptors>
+		
+		<global-results>
+			<result name="login" >/login.jsp</result>
+		</global-results>
+		
+		<!-- <action name="login" class="controlador.LoginAction">
+			<result name="success">/logado.jsp</result>
+		</action> -->
+		
+		<action name="registro" class="controlador.RegistroAction">
+            <result name="success">/index.jsp</result>
+            <result name="login">/index.jsp</result>
+        </action>
+		
+		<action name="login" class="controlador.LoginAction">
+            <result name="success" type="chain">principal</result>
+            <result name="login">/index.jsp</result>
+        </action>
+        
+        <action name="principal" class="controlador.PrincipalAction">
+            <result name="success">/principal.jsp</result>
+        </action>
+        
+        <action name="logout" class="controlador.LogoutAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="gestionContacto" class="controlador.GestionContactoAction">
+            <result name="success">/formularioContacto.jsp</result>
+        </action>
+        
+        <action name="guardarContacto" class="controlador.GuardarContactoAction">
+            <result name="success" type="chain">principal</result>
+        </action>
+        
+        <action name="eliminar" class="controlador.EliminarAction">
+            <result name="success" type="chain">principal</result>
+        </action>
+		
+		<action name="underConstruction" class="com.opensymphony.xwork2.ActionSupport">
+			<result>/uc.html</result>
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="simple"/>
+		</action>
+		<!--  http://www.javatutoriales.com/2011/10/struts-2-parte-3-trabajo-con.html Tutoriaaaal!!!!!!!!!!!!!
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result=“errorDesconocido" />
+			<exception-mapping exception="java.sql.SQLException" result=“errorBBDD" />
+		</global-exception-mappings>-->
+	</package>
+	
+</struts>

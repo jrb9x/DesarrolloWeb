@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Agenda</title>
+</head>
+<body>
+<section id="nuevoContacto">
+			
+			<h2>Nuevo Contacto</h2>
+				<div id="formulario">
+				<form id="contacto" action="ServletGestionContacto" method="POST" >
+					<label for="nombreContacto">Nombre: </label><input type="text" name="nombreContacto" id="nombreContacto" tabindex="1"></input>
+					<label for="apellidosContacto">Apellidos: </label><input type="text" name="apellidosContacto" id="apellidosContacto" tabindex="2"></input>
+					<label for="telefonoContacto">Telefono: </label><input type="text" name="telefonoContacto" id="telefonoContacto" tabindex="3"></input>
+					<label for="emailContacto">Fecha: </label><input type="date" name="emailContacto" id="emailContacto" tabindex="4"></input>
+					<button onclick="submit(this)" tabindex="6">Añadir contacto</button>
+				</form><br>
+				</div>
+			
+		</section>
+	
+</body>
+</html>

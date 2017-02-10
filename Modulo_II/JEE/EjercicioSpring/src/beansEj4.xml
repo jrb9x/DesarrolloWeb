@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="personaUno" class="beans.PersonaEj4" autowire="byName">
+		<property name="nombre" value="Paco"/>
+		<property name="edad" value="50"/>
+		<property name="altura" value="1.80"/>
+	</bean>
+	
+	<bean id="personaDos" class="beans.PersonaEj4" autowire="byType">
+		<property name="nombre" value="Pepe"/>
+		<property name="edad" value="38"/>
+		<property name="altura" value="1.70"/>
+	</bean>
+	
+	<bean id="personaTres" class="beans.PersonaEj4" autowire="constructor">
+		<property name="nombre" value="Luis"/>
+		<property name="edad" value="27"/>
+		<property name="altura" value="1.75"/>
+	</bean>
+	
+	
+	<bean id="direccion" class="beans.Direccion">
+		<property name="cp" value="28001"/>
+		<property name="calle" value="Calle Serrano"/>
+	</bean>
+	
+	
+	
+
+</beans>

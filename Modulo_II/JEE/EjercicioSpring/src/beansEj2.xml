@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="personaUno" class="beans.PersonaEj2" scope="prototype">
+		<property name="nombre" value="Jorge" />
+		<property name="edad" value="25" />
+		<property name="altura" value="1.73" />
+		<property name="pareja" ref="personaDos" />
+		<property name="amigos">
+			<list value-type="beans.persona">
+			<ref bean="personaDos"/>
+			<ref bean="personaTres"/>
+			</list>
+		</property>
+		<property name="colores">
+			<list value-type="java.lang.String">
+			<value>rojo</value>
+			<value>azul</value>
+			<value>negro</value>
+			</list>
+		</property>
+		<property name="emails">
+			<map key-type="java.lang.String" value-type="java.lang.String">
+			<entry key="email1" value="jrb@gmail.com"/>
+     		<entry key="email2" value="jrb91@outlook.com"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="personaDos" class="beans.PersonaEj2" scope="prototype">
+		<property name="nombre" value="Lara" />
+		<property name="edad" value="50" />
+		<property name="altura" value="1.70" />
+		
+	</bean>
+	
+	<bean id="personaTres" class="beans.PersonaEj2" scope="prototype">
+		<property name="nombre" value="Pepa" />
+		<property name="edad" value="30" />
+		<property name="altura" value="1.65" />
+		
+	</bean>
+
+</beans>

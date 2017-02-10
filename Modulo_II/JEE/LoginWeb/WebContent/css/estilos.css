@@ -1,0 +1,145 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+	background-color:#E2E2E2;
+}
+
+main{
+}
+
+header{
+	margin: 0 auto;
+	position:fixed;
+	left:12.5%;
+	width:75%;
+	height:140px;
+	background-image: url("../imagenes/fondo.jpg");
+    background-repeat: repeat;
+}
+
+section{
+	margin: 0 auto;
+	width:75%;
+	height:800px;
+	background-color:white;
+}
+
+#cajaLogin{
+	width: 800px;
+	height: 400px;
+	margin: 100px auto;
+	background-color:white;
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+
+#cajaLoginIzq{
+	background-image: url("../imagenes/fondo.jpg");
+    background-repeat: repeat;
+	width:400px;
+	height:400px;
+	text-align:center;
+	line-height:400px;
+	display:inline-block;
+	float:left;
+}
+
+#cajaLoginDer{
+	width:394px;
+	height:400px;
+	display:inline-block;
+	float:left;
+}
+
+#tituloLogin{
+	text-align:center;
+}
+
+#botonLogin{
+	text-align:right;
+}
+
+#formLogin table,#formRegistro table{
+	border-spacing: 10px 5px;
+}
+
+img,input{
+	vertical-align:middle;
+}
+
+#errores{
+	color:red;
+}
+
+#tablaCabecera{
+	width=100%;
+	border:1px solid white;
+}
+
+#txtBuscar{
+	font-family: Verdana;
+	font-size:20px;
+	height:50px;
+	
+}
+
+#cajaCabecera{
+	width:100%;
+	height:140px;
+}
+
+#cajaCabeceraIzq{
+	display:inline-block;
+	float:left;
+	width:20%;
+	height:140px;
+	text-align:center;
+}
+#cajaCabeceraMed{
+	display:inline-block;
+	float:left;
+	width:60%;
+	height:140px;
+	line-height:140px;
+	padding-left:30px;
+	text-align:center;
+}
+#cajaCabeceraDer{
+	display:inline-block;
+	float:left;
+	width:14%;
+	height:140px;
+	line-height:40px;
+	font-family: Verdana;
+	font-size:20px;
+	color:#DDA607;
+	padding-right:30px;
+	text-align:right;
+}
+#cajaVacia{
+	border:1px solid green;
+	height:150px;
+}
+#cajaFavoritos{
+	border:1px solid blue;
+	height:200px;
+}
+#cajaPeliculas{
+	border:1px solid red;
+	height:200px;
+}
+#cajaCelebritys{
+	border:1px solid black;
+	height:200px;
+}
+#cajaTodasPelicula,#cajaTodasCelebrity,#cajaModificarUsuario{
+	border:1px solid black;
+	height:400px;
+}
+
+.cuerpo{
+	text-align:center;
+}

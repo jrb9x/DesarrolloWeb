@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IMBD - Peliculas</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+	<main>
+		<div id="cajaLogin">
+			<div id="cajaLoginIzq">
+				<img src="imagenes/logo.png" width="330" height="238"/>
+			</div>
+			<div id="cajaLoginDer">
+				<form id="formLogin" action="ServletLogin" method="post">
+					<div id="tituloLogin">
+						<h1>Login</h1><br/>
+					</div>
+					<table>
+						<tr>
+							<td>Nombre:</td>
+							<td><input type="text" name="nombre" size="15"/></td>
+						</tr>
+						<tr></tr>
+						<tr>
+							<td>Password:</td>
+							<td><input type="password" name="password" size="15"/></td>
+						</tr>
+					</table>
+					<div id="botonLogin">
+						<input type="image" src="imagenes/boton_entrar.png" alt="Submit" width="50px" height="50px">Entrar</input>
+					</div><br/>
+					Si no estás registrado, <a href="registroUsuario.html">Registrarse</a>
+				</form>
+				
+			</div>
+		</div>
+	</main>
+</body>
+</html>

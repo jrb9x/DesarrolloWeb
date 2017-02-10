@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+	
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+	  	http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="ejemplo"/>
+	
+	<!--  
+	<bean id="estudianteUno" class="ejemplo.Estudiante" autowire="byName"
+		init-method="inicio" 
+		destroy-method="destruir">
+		
+		<property name="nombre" value="Jorge"></property>
+		<property name="edad" value="25"></property>
+	</bean>
+	<bean id="estudianteDos" class="ejemplo.Estudiante" lazy-init="true">  
+		<property name="nombre" value="Pepe"></property>  
+		<property name="edad" value="23"></property>
+		<property name="amigo">
+			<list value-type="ejemplo.Estudiante">
+			<ref bean="estudianteUno"/>
+			<ref bean="estudianteTres"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="estudianteTres" class="ejemplo.Estudiante" lazy-init="true">  
+		<property name="nombre" value="Paco"></property>
+		<property name="edad" value="50"></property>
+	</bean>
+	<bean id="estudianteCuatro" parent="estudianteUno" class="ejemplo.Estudiante" lazy-init="true">  
+	</bean>
+	<bean id="comp" class="ejemplo.Estudiante" lazy-init="true">
+		<property name="nombre" value="Lara"></property>  
+	</bean>
+	 -->
+	 
+</beans> 
