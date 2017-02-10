@@ -1,0 +1,33 @@
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+main{
+	margin: auto;
+	width:960px;
+	border:1px solid red;
+	text-align:center;
+}
+
+body{
+	text-align:center;
+}
+ section{
+	 text-align:center;
+	 margin: 0px 350px;
+ }
+ p#errores{
+	 color:red;
+ }
+ #logout{
+	 text-align:right;
+	 width: 100%;
+	 
+	 
+ }
+ #logouta{
+	 padding-right: 40px;
+ }
+ 

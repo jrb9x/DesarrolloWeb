@@ -1,0 +1,30 @@
+body {
+	text-align: center;
+
+	}
+
+main{
+	width: 1300px:
+
+}
+aside {
+	float: left;
+	width: 400px;
+	padding: 15px;
+	text-align: left;
+	box-shadow: #BBFFBA 5px 5px 10px;
+	border-radius: 30px / 40px;
+	margin: 5px;
+}
+.A1{
+	width: 800px;
+}
+section{
+	float: left;
+	width: 1300px;
+	box-shadow: #F0FFCA 5px 5px 10px;
+	border-radius: 30px / 40px;
+	margin: 5px;
+	padding: 15px;
+	text-align: left;
+}

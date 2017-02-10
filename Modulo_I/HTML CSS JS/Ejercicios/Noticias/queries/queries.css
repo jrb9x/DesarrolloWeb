@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+	color: blue;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1;
+}
+
+p {
+    font-size: 15px;
+    font-size: 1.5rem;
+    line-height: 1.333333334;
+    margin-bottom: 20px;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.three-columns {
+    margin: 20px;
+    margin: 2rem;
+}
+
+@media (min-width: 600px) {
+    .three-columns {
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+
+        -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+        -moz-column-gap: 40px; /* Firefox */
+        column-gap: 40px;
+
+        -webkit-column-gap: 4rem; /* Chrome, Safari, Opera */
+        -moz-column-gap: 4rem; /* Firefox */
+        column-gap: 4rem;
+
+        -webkit-column-rule: 5px solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
+        -moz-column-rule: 5px solid rgb(75, 180, 149)  ; /* Firefox */
+        column-rule: 5px solid rgb(75, 180, 149)  ;
+
+        -webkit-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Chrome, Safari, Opera */
+        -moz-column-rule: 0.5rem solid rgb(75, 180, 149)  ; /* Firefox */
+        column-rule: 0.5rem solid rgb(75, 180, 149)  ;
+    }
+}
+
+@media (min-width: 900px) {
+    .three-columns {
+        -webkit-column-count: 3; /* Chrome, Safari, Opera */
+        -moz-column-count: 3; /* Firefox */
+        column-count: 3;
+    }
+}

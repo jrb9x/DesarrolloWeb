@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var persona1 = ["John", "Doe", 40, "90000001Z", "Casado"];
+var persona2 = ["Sally", "Rally", 43, "10000009A", "Divorciada"];
+//Longitud del Array
+console.log(persona1.length);
+//Unir Arrays
+var pareja = persona1.concat(persona2);
+console.log(pareja);
+//Devolver posicion de un Array
+console.log(pareja.indexOf(43));
+//Unir Arrays en un string
+console.log(pareja.join(', +'));
+//Busca un elemento empezando por el final y devulve posicion
+console.log(pareja.lastIndexOf(43));
+//elimina el ultimo elemento
+console.log(pareja.pop());
+//Añade un elemento
+console.log(pareja.push("Gato"));
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>Con ayuda del temporizador Interval, ejecutamos un script que cambia la hora cada segundo:</p>
+<p> tambien tenemos un boton que paraliza el script</p>
+<p id="demo"></p>
+<button onclick="congeladorDeTiempo()">Parar el tiempo</button>
+<script>
+var intervalo = setInterval(function(){ miReloj() }, 1000);//(miReloj, 1000); llama a la referencia, no la ejecuta
+
+function miReloj() {
+var d = new Date();
+var t = d.toLocaleTimeString();
+document.getElementById("demo").innerHTML = t;
+}
+function congeladorDeTiempo() {
+clearInterval(intervalo);
+}
+</script>
+</body>
+</html>
+

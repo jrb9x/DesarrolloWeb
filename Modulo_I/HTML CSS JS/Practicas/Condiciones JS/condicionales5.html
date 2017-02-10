@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+Escribir un if / else con la siguiente condición:<br/>
+
+Si la variable edad es mayor que 18, la salida debe ser "lo suficientemente viejo", de lo contrario la salida "Demasiado joven".
+<input type="number" id="e">
+<button type="submit" onclick="votar()">Edad</button>
+<p id="edad"></p>
+<script>
+function votar(){
+var edad = document.getElementById("e").value;
+
+if (edad < 18) {
+    document.getElementById("edad").innerHTML = "Demasiado joven para votar!";
+}
+else{
+	document.getElementById("edad").innerHTML = "lo suficientemente viejo para votar";
+}
+}
+//Añadir if/else 
+</script></body>
+</html>

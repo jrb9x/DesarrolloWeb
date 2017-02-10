@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<title>Registro</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="registro.css">
+</head>
+<body>
+<main>
+
+<header><h1>Registro de Usuarios</h1></header>
+
+<aside>
+
+<h3>Introducir Datos de Registro</h3>
+<table width="100%" method="GET">
+	<tr>
+		<td>Nombre:</td><td><input type="text" id="name" autofocus></td>
+	</tr>
+	<tr>
+		<td>Apellidos:</td><td><input type="text" id="apellidos"></td>
+	</tr>
+	<tr>
+		<td>Fecha de Nacimiento:</td><td><input type="date" id="dNac"></td>
+	</tr>
+	<tr>
+		<td>Fecha de Obtención del Carnet de Conducir:</td><td><input type="date" id="dCar"></td>
+	</tr>
+	<tr>
+		<td>Fecha de finalización de los estudios:</td><td><input type="date" id="dEst"></td>
+	</tr>
+</table>
+
+<button onclick="registrarUsuario()">Registrarse</button>
+
+</aside>
+
+<aside class="A1">
+<h3>Ultimos Datos Registrados</h3>
+<p>Cambiar formato fechas</p>
+<button onclick="camFormatoY()">YYYY-MM-DD</button>
+<button onclick="camFormatoD()">DD/MM/YYYY</button>
+
+<p>Mostrar detalles Fecha</p>
+<button onclick="calcularAnio()">Años</button>
+<button onclick="calcularMes()">Meses</button>
+<button onclick="calcularDia()">Dias</button>
+
+<table width="100%">
+	<tr>
+		<td>Nombre:</td><td><p id="nombre"></p></td>
+	</tr>
+	<tr>
+		<td>Primer Apellido:</td><td><p id="pApellido"></p></td><td>Segundo Apellido:</td><td><p id="sApellido"></p></td>
+	</tr>
+	<tr>
+		<td>Fecha de Nacimiento:</td><td><p id="fNac"></p></td><td>Edad:</td><td><p id="edad"></p></td>
+	</tr>
+	<tr>
+		<td>Fecha de Obtención del Carnet de Conducir:</td><td><p id="fCar"></p></td><td>Tiempo con Carnet de Conducir hasta Hoy:</td><td><p id="fCarT"></p></td>
+	</tr>
+	<tr>
+		<td>Fecha de finalización de los estudios:</td><td><p id="fEst"></p></td><td>Tiempo desde la finalización de Estudios hasta Hoy:</td><td><p id="fEstT"></p></td>
+	</tr>
+</table>
+
+</aside>
+
+
+<section>
+
+	<h3>Usuarios Registrados</h3>
+	
+	<p>Primer Usuario:</p><p id="primero"></p>
+	
+	<p>Ultimo Usuario:</p><p id="ultimo"></p>
+	<button onclick="eliminarUsuario()">Eliminar ultimo registro</button>
+	
+</section>
+
+<script>
+
+function usuario(nombre, pApellido, sApellido, fNac, fCar, fEst){
+	this.nombre = nombre;
+	this.pApellido = pApellido;
+	this.sApellido = sApellido;
+	this.fNac = fNac;
+	this.fCar = fCar;
+	this.fEst = fEst;
+}
+var usuario;
+var usuarios = new Array[];
+
+function registrarUsuario(){
+//Leer Formulario
+	var valor;
+	
+	valor = document.getElementById("name").value;
+	var nombre = valor;
+	console.log(nombre.trim());
+	valor = document.getElementById("apellidos").value;
+	arrayApellidos=valor.split(" ");
+	var pApellido = arrayApellidos[0];
+	console.log(pApellido.trim());
+	var sApellido = arrayApellidos[1];
+	console.log(sApellido.trim());
+	valor = document.getElementById("dNac").value;
+	var fNac = new Date(valor);
+	valor = document.getElementById("dCar").value;
+	var fCar = new Date (valor);
+	valor = document.getElementById("dEst").value;
+	var fEst = new Date (valor);
+	usuario = new usuario (nombre, pApellido, sApellido, fNac, fCar, fEst);
+	usuarios.push(usuario);
+	mostrarUsuario();
+	mostrarLista(usuarios);
+}
+
+function mostrarUsuario(){
+	document.getElementById("nombre").innerHTML = usuario.nombre;
+	document.getElementById("pApellido").innerHTML = usuario.pApellido;
+	document.getElementById("sApellido").innerHTML = usuario.sApellido;
+	//FormatoFechaYMD();
+	
+	document.getElementById("fNac").innerHTML = usuario.fNac;	
+	var fHoy = new Date();
+	var tiempo = usuario.fNac;
+	tiempo = fHoy.getTime() - tiempo.getTime();
+	//calculaAnio();
+	//milisegundos(funcion)1000/3600/24/365.25
+	//anios=math.floor(anios);
+	//meses 
+	//dias%365.25/30.42
+	//calculoanio
+	document.getElementById("edad").innerHTML = tiempo + " año(s)";
+	
+	document.getElementById("fCar").innerHTML = usuario.fCar;
+	tiempo = usuario.fCar;
+	tiempo = fHoy.getTime() - tiempo.getTime();
+	document.getElementById("fCarT").innerHTML = tiempo + " año(s)";
+	
+	document.getElementById("fEst").innerHTML = usuario.fEst;
+	tiempo = usuario.fEst;
+	tiempo = fHoy.getTime() - tiempo.getTime();
+	document.getElementById("fEstT").innerHTML = tiempo + " año(s)";
+	
+}
+function formatiFechaYMD(){
+	//invertirYMD();
+}
+function invertirYMD(fecha){
+	var fecha = 
+	return fecha;
+}
+
+function mostrarLista(usuarios){
+	var longitud=usuarios.lenght
+	var user1 = usuarios[0];
+	document.getElementById("primero").innerHTML=user1.nombre + " " + user1.pApellido + " " + user1.sApellido;
+	var user2 = usuarios[longitud - 1];
+	document.getElementById("ultimo").innerHTML=user2.nombre + " " + user2.pApellido + " " + user2.sApellido;
+}
+
+function eliminarUsuario(){
+	usuarios.pop();
+	mostrarLista();
+}
+
+function calcularAnio(){
+	
+}
+function calcularMes(){
+	
+}
+function calcularDia(){
+	
+}
+
+</script>
+
+
+</main>
+</body>
+</html>

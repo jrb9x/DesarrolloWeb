@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<main>
+		<header>
+			RED SOCIAL
+		</header>
+		<section>
+			<h1>REGISTRO</h1>
+			<form name="formRegistro" id="formRegistro" action="registroController.php" onSubmit="return validarRegistro()" method="post" enctype="multipart/form-data">
+				<p id="errores"></p>
+				<table>
+					<tr>
+						<td><label>Nombre de usuario:</label></td>
+						<td><input type="text" name="nombre" tabindex="1" required/></td>
+					</tr>
+					<tr>
+						<td><label>Contraseña:</label></td>
+						<td><input type="password" name="password" id="password"tabindex="2" required/></td>
+					</tr>
+					<tr>
+						<td><label>Verificar Contraseña:</label></td>
+						<td><input type="password" name="VerificacionPassword" id="password2" tabindex="3" required/></td>
+					</tr>
+					<tr>
+						<td><label>Imagen de perfil:</label></td>
+						<td><input type="file" name="imagen" tabindex="4" required/></td>
+					</tr>
+				</table>
+				 <input type="submit" value="Enviar" tabindex="5"/>
+			</form>
+			<a href="login.html">Atras</a>
+		</section>
+	</main>
+	
+<script>
+	function validarRegistro(){
+	alert("entra");
+		var password = document.getElementById("password").value;
+		var password2 = document.getElementById("password2").value;
+		
+		if(password == password2){
+		document.getElementById("formRegistro").submit();
+		return true;
+		}
+		else{
+		alert("no son iguales");
+			document.getElementById("errores").innerHTML="No coinciden las contraseñas";
+			return false;
+		}
+	}
+</script>
+</body>
+</html>

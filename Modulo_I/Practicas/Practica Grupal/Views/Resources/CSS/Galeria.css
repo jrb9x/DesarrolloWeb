@@ -1,0 +1,22 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	background-image: url("../Img/fondo.png");
+}
+body{
+	font-family: 'Maven Pro', sans-serif;
+}
+h1{
+
+}
+h3{
+	font-size: 15px;
+	opacity: 0.8;
+	text-align: center;
+}
+img{
+
+}
+iframe{
+	width: 100%;
+}

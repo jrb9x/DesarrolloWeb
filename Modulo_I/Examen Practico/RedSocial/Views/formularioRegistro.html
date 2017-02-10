@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <header><h2>Resgistro Usuarios</h2></header>
+    <section>
+        <form name="formularioRegistro" id="formularioRegistro" action="../Controllers/UsuariosController.php" onsubmit="return validarRegistro()" method="post" enctype="multipart/form-data">
+            <p id="errores"></p>
+        <table>
+            <tr>
+                <td><label>Nombre: </label></td><td><input type="text" name="nombre" id="nombre" tabindex=""></td>
+            </tr><tr>
+                <td><label>Contraseña: </label></td><td><input type="text" name="password" id="password" tabindex=""></td>
+            </tr><tr>
+                <td><label>Verificar Contraseña: </label></td><td><input type="text" name="password2" id="password2" tabindex=""></td>
+            </tr><tr>
+                <td><label>Imagen: </label></td><td><input type="file" name="imagen" id="imagen" tabindex=""></td>
+            </tr><tr>
+                <td><label>Estado: </label></td><td><textarea name="estado" id="estado" tabindex=""></textarea></td>
+            </tr>
+        </table>
+        </form>
+    </section>
+</main>
+
+<script>
+function validarRegistro(){
+    nombre = document.getElementById("nombre").value.trim();
+    password = document.getElementById("password").value;
+    password2 = document.getElementById("password2").value;
+
+    if(validarNombre(nombre) && validarPassword(password, password2)){
+        return true;
+    }
+    else{
+        document.getElementById("errores").innerHTML = "Error de Registro.";
+        return false;
+    }
+}
+
+function validarNombre(nombre) {
+    if (nombre != "") {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function validarPassword(password, password2){
+    if (password == password2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+}
+</script>
+
+</body>
+</html>

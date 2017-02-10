@@ -1,0 +1,101 @@
+
+body{
+	font-family: 'Maven Pro', sans-serif;
+	background-image: url("../Img/fondo.png");
+}
+.divMenu{
+	display: block;
+}
+.lista-menu{
+	padding:0;
+	margin:20px auto;
+	width: 1020px;
+	list-style: none;
+	max-width: 1000px;
+}
+.menu{
+	width: 160px;
+	height: 160px;
+	float: left;
+	box-shadow: rgba(0,0,0,0.2) 3px 3px 4px;
+	margin-right: 4px;
+	transition: all 300ms linear;
+	border-radius: 15px;
+}
+.lista-menu li a{
+	text-align: center;
+	width: 100%;
+	display: block;
+	color: #333;
+	position: relative;
+	text-decoration: none;
+}
+.iconos{
+	margin-top: 10px;
+	text-align: center;
+	transition: all 400ms linear;
+}
+img{
+	width: 25%;
+	height: 50%;
+}
+.contenido{
+	left: 0px;
+	width: 100%;
+	height: 50%;
+	top: 50%;
+}
+h2{
+	font-size: 20px;
+	opacity: 0.8;
+	text-align: center;
+	transition: all 200ms linear;
+}
+.menu:hover{
+	background-color: #808080;
+	z-index:100;  
+	transform: scale(1.1);
+}
+.menu:hover .iconos{
+	font-size: 90px;
+	transform: scale(2); 
+}
+.submenu{
+	visibility: hidden;
+	list-style: none;
+	width: 160px;
+	height: auto;
+	float: left;
+	box-shadow: rgba(0,0,0,0.2) 3px 3px 4px;
+	transition: all 300ms linear;
+	border-radius: 15px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+.subopcion{
+	text-align: center;
+}
+a{
+	margin-top: 10px;
+}
+.menu:hover .submenu{
+	visibility: visible;
+	display: block;
+}
+.subopcion:hover{
+	background-color: #808080;
+	z-index:100;  
+	transform: scale(1.1);
+	border-radius: 15px;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .menu{
+    	max-width: 10%;
+    	max-height: 10%;
+    }
+    h2{
+    	font-size: 50%;
+    }
+}

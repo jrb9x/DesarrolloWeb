@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" type="text/css" href="./Resources/CSS/Formulario.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+
+<header>
+<h1>Red Social</h1>
+</header>
+
+<section>
+    <h2>Login de Usuario</h2>
+    <form action="../Controllers/LoginUsuario.php" name="formularioUsuarios" method="post" enctype="multipart/form-data">
+    <label for="nombre">Nombre:</label> <input type="text" name="nombre" id="nombre">
+    <label for="passw">Contraseña:</label> <input type="password" name="password" id="password">
+
+    <button onclick="submit(this)">Login</button>
+    </form>
+</section>
+
+<section>
+    <h2>Registro de Usuario</h2>
+    <form action="../Controllers/UsuariosController.php" name="formularioUsuarios" onsubmit="validarRegistro()" method="post" enctype="multipart/form-data">
+
+    <label for="nombre">Nombre:</label> <input type="text" name="nombre" id="nombre">
+    <label for="passw">Contraseña:</label> <input type="password" name="passw" id="passw">
+    <label for="estado">Estado:</label> <textarea name="estado" id="estado"></textarea>
+    <label for="imagen">Imagen de Perfil:</label> <input type="file" name="imagen" id="imagen"><br>
+
+    <button onclick="submit(this)">Registrar</button>
+
+</form>
+</section>
+
+<script>
+
+</script>
+
+</body>
+</html>

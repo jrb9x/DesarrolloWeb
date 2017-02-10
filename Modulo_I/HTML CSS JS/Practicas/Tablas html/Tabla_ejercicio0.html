@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+table{
+	border: 1px solid red;
+	}
+table, th, td {
+	border-collapse: collapse;
+	margin-top: 10px;
+	text-align:center;
+	}
+th, td {
+	border: 1px dotted blue;
+    padding: 5px;
+}
+ul,li{
+	list-style-type: circle;
+	}
+</style>
+</head>
+
+<body>
+<!-- Rowspan, indica el número de filas que ocupará la celda. 
+Por defecto ocupa una sola fila. --><table style="width:100%">
+  <tr>
+  <td rowspan="5"><p>Continentes</p></td>
+  <td><p>Europa</p></td>
+  </tr>
+  <tr><td><p>Africa</p></td>
+  </tr>
+  <tr><td><p>Asia</p></td>
+  </tr>
+
+  <tr><td><p>America</p></td>
+  </tr>
+
+  <tr><td><p>Oceania</p></td>
+
+<!-- Colspan, indica el número de columnas que ocupará la celda. 
+Por defecto ocupa una sola columna. -->
+
+<table style="width:100%">
+  <tr>
+  <td colspan="5"><p>Continentes</p></td>
+  </tr>
+  <td><p>Europa</p></td>
+  <td><p>Africa</p></td>
+  <td><p>Asia</p></td>
+  <td><p>America</p></td>
+  <td><p>Oceania</p></td>
+  
+</table>
+
+
+
+</body>
+</html>

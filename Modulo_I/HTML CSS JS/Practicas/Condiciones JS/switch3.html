@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+El bloque switch no funciona, arreglalo
+<input id="myInput" type="text" value="Naranja">
+
+<p id="demo"></p>
+
+<script>
+var text;
+var fruits = document.getElementById("myInput").value;
+
+switch(fruits) {
+    case "Platano":
+        text = "EL platano esta bien!";
+		break;
+    case "Naranja":
+        text = "No soy fan de las naranjas";
+		break;
+    default:
+        text = "No conozco esa fruta";
+  }
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

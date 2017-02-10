@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<main>
+	<header>AGENDA</header>
+
+	<section>
+		<h1>REGISTRO</h1>
+		<form name="formRegistro" id="formRegistro" action="usuarioController.php" onSubmit="return validarRegistro()" method="post">
+			<p id="errores"></p>
+			<table>
+				<tr>
+					<td><label>Usuario:</label></td>
+					<td><input type="text" name="nombre" tabindex="1"/></td>
+				</tr>
+				<tr>
+					<td><label>Contraseña:</label></td>
+					<td><input type="password" name="password" id="password" tabindex="2"/></td>
+				</tr>
+				<tr>
+					<td><label>Verificar Contraseña:</label></td>
+					<td><input type="password" name="Vpassword" id="Vpassword" tabindex="3"/></td>
+				</tr>
+			</table>
+			<input type="submit" value="Enviar" tabindex="4"/>
+		</form>
+		<a href="login.html">Atras</a>
+	</section>
+</main>
+
+<script>
+	function validarRegistro() {
+		var nombre = document.getElementById("nombre").value;
+		var password = document.getElementById("password").value;
+		var password2 = document.getElementById("Vpassword").value;
+
+		if (validarNombre(nombre) && validarPass(password, password2)){
+			document.getElementById("formRegistro").submit();
+			return true;
+		}
+		else{
+			document.getElementById("errores").innerHTML="Rellena todos los campos correctamente";
+			return false;
+		}
+	}
+
+	function validarNombre(nombre){
+		if (nombre != ""){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	function validarPass(password, password2){
+		if(password == password2){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+</script>
+</body>
+</html>

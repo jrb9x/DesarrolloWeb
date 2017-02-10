@@ -1,0 +1,17 @@
+
+	p {
+		font-family:comic sans MS;
+		}
+	p#p01{
+		color:blue;
+	}
+	body{
+		background-color:lightgrey;
+	}
+	h3{
+		color:green;
+	}
+	h1{
+		text-align:center;
+		font-size:2em;
+	}

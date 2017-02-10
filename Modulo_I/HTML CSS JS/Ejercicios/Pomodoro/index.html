@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>POMODORO</title>
+	<link rel="shortcut icon" href="p.ico" type="image/x-icon"/>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="pomodoro.css">
+</head>
+
+<body>
+<main>
+
+<header>
+<table width ="100%">
+	<tr>
+		<td>
+		<canvas id="canvas1" width="250px" height="30px" >
+		<p>Su navegador no soporta canvas :(</p>
+		</canvas>
+		</td>
+		<td><h1 id="animacion"><a href="principal.html">POMODORO</a></h1></td>
+		<td>
+		<canvas id="canvas2" width="250px" height="30px" >
+		<p>Su navegador no soporta canvas :(</p>
+		</canvas>
+		</td>
+	</tr>
+</table>
+</header>
+
+<section>
+
+<h2>¿Qué es Pomodoro?</h2>
+
+<p id="size">La Técnica Pomodoro es un método para mejorar la administración del tiempo 
+desarrollado por Francesco Cirillo a fines de los años 1980.1 La técnica usa 
+un reloj para dividir el tiempo dedicado a un trabajo en intervalos de 25 
+minutos -llamados 'pomodoros'- separados por pausas. Relacionado con conceptos 
+como timeboxing y desarrollo iterativo e incremental, usados en el desarrollo 
+de software, el método ha sido adoptado en contextos de desarrollo ágil y 
+Programación en pareja (pair programming) además de otros contextos de trabajo.
+</p>
+<br>
+<p id="size">
+Son fundamentales las etapas de planeamiento, anotación, registro, proceso y visualización.
+En el planeamiento, las tareas son priorizadas en una lista "Para hacer hoy". Esto permite 
+a los usuarios estimar el esfuerzo que cada tarea puede requerir. Cuando se completan los 
+"pomodoros" (en lo que se refiere a la técnica, 'pomodoro' significa un periodo indivisible 
+de tiempo, usualmente de 25 minutos), estos se registran, dando un sentimiento de logro y, 
+a la vez, datos base para una posterior auto-observación y mejora. Un objetivo esencial de 
+la técnica es eliminar las interrupciones, tanto internas como externas. Esto se hace 
+registrándolas y posponiéndolas siempre que sea posible.
+</p>
+<br>
+<p id="size">
+Hay cinco pasos básicos para implementar la técnica:
+<br><br>
+<ol type="1"> 
+	<li>Decidir la tarea a realizar</li><br>
+	<li>Poner el pomodoro (el reloj o cronómetro) a 25 minutos</li><br>
+	<li>Trabajar en la tarea de manera intensiva hasta que el reloj suene y anotar una X</li><br>
+	<li>Tomar una pausa breve (5 minutos)</li><br>
+	<li>cada cuatro "pomodoros" tomar una pausa más larga (15-20 minutos)</li><br>
+</ol>
+</p>
+<p id="size"><strong><a href="principal.html">EMPEZAR</a></strong></p>
+
+</section>
+
+
+<script>
+	var canvas1 = document.getElementById('canvas1');
+    var ctx1 = canvas1.getContext('2d');
+	
+	var canvas2 = document.getElementById('canvas2');
+    var ctx2 = canvas2.getContext('2d');
+    // obtenemos las dimensiones del canvas
+    var width = 250;
+    var height = 30;
+
+    // posiciones
+    var x1 = 0;	
+    var x2 = width;	
+    var y = height;
+
+    // velocidad
+    var vx = 1;
+    var vy = 1;
+
+    // animation loop
+function animar() {
+    // limpia canvas1 y dibuja un cuadrado de 10x10
+    ctx1.clearRect(0, 0, width, height);
+    ctx1.fillRect(x1, 10, 10, 10);
+	// limpia canvas2 y dibuja un cuadrado de 10x10
+	ctx2.clearRect(0, 0, width, height);
+	ctx2.fillRect(x2, 10, 10, 10);
+	// actualizamos la posicion
+	x1 += vx;
+	x2 -= vx;
+	y = vy;
+
+	// animamos
+	requestAnimationFrame(animar);
+
+    // verificamos que no se salga de rango
+    if (x1 > width) {
+        x1 = 0;
+        y = 0;
+    }
+	if (x2 < 0) {
+        x2 = width;
+        y = 0;
+    }
+}
+
+animar();
+</script>
+<footer>
+<details>
+
+<summary>Copyright © Jorge Rivas</summary>
+
+<p> - by Jorge Rivas. All Rights Reserved.</p>
+<p>All content and graphics on this web site are the
+property of Jorge Rivas.</p>
+
+</details>
+</footer>
+</main>
+</body>
+</html>

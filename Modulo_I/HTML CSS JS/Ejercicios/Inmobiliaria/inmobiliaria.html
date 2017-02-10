@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+
+<button onclick="mostrarPersona(persona1)">Persona 1</button>
+<button onclick="mostrarPersona(persona2)">Persona 2</button>
+<button onclick="mostrarCasa(casa)">Casa</button>
+<button onclick="comprarCasa(casa, persona2)">Compra</button>
+
+<p id="p"></p>
+<p id="c"></p>
+
+
+<script>
+
+function cuentaBancaria(numeroCuenta, cantidadDinero){
+this.numeroCuenta = numeroCuenta;
+this.cantidadDinero = cantidadDinero;
+}
+
+function persona(nombre, apellido, dni, img, cuentaBancaria){
+this.nombre = nombre;
+this.apellido = apellido;
+this.dni = dni;
+this.img = img;
+this.cuentaBancaria = cuentaBancaria;
+}
+
+var cuentaBancaria1 = new cuentaBancaria("ES000000000000000001", 3000000);
+var cuentaBancaria2 = new cuentaBancaria("DE000000000000000002", 1900000);
+
+var persona1 = new persona("John", "Doe", "90000001A", "p1.jpg", cuentaBancaria1);
+var persona2 = new persona("Sally", "Rally", "10000009Z", "p2.jpg", cuentaBancaria2);
+
+var casa = new Object();
+casa.precio = 1500000;
+casa.direccion = "Paseo de la Castellana 5";
+casa.metros = "600m2";
+casa.img = "c.jpg";
+casa.propietario = persona1;
+
+
+
+function mostrarPersona(persona){
+document.getElementById("p").innerHTML= "Nombre: " + persona.nombre + " " + persona.apellido +
+"<br>dni: " + persona.dni +
+"<br>Cuenta Bancaria: " +
+"<br><img src=" + persona.img + " width="+"200"+" height="+"200"+">" +
+"<br>Numero Cuenta: " + persona.cuentaBancaria.numeroCuenta +
+"<br>Cantidad: " + persona.cuentaBancaria.cantidadDinero;
+}
+
+function mostrarCasa(casa){
+document.getElementById("c").innerHTML= 
+"Precio Casa: " + casa.precio +
+"<br>Direccion: " + casa.direccion +
+"<br>Metros: " + casa.metros +
+"<br><img src=" + casa.img + " width="+"200"+" height="+"200"+">" +
+"<br>Propietario: " + casa.propietario.nombre + " " + casa.propietario.apellido;
+}
+
+function comprarCasa(casa, comprador){
+casa.propietario.cuentaBancaria.cantidadDinero = casa.propietario.cuentaBancaria.cantidadDinero + casa.precio;
+comprador.cuentaBancaria.cantidadDinero = comprador.cuentaBancaria.cantidadDinero - casa.precio;
+casa.propietario = comprador;
+}
+
+</script>
+
+</body>
+</html>

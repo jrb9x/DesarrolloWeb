@@ -1,0 +1,91 @@
+<!doctype HTML>
+<html>
+<head>
+	<title>Registrar Formulario</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="estilo.css">	<!-- Fichero de hoja de estilo externa-->
+	<script src="myscript.js"></script>  		<!-- Fichero javascript externo-->
+	
+</head>
+<body>
+	<main>
+		<header>
+			<h1>Registro de usuarios</h1>
+		</header>
+		<section>
+			<article id="imagen">
+				<img src="images\register.jpg" alt="registro de usuario" width="300px" height="220px"/>
+			</article>
+			<article id="registro">
+				<hr>
+				<form name="registro" id="formulario">	<!--formulario de registro-->
+					<h3><span id="msgestado">Por favor, introduzca los siguientes datos:</span></h3>
+					<p id="error"></p>
+					<table>	
+						<tr>
+							<td class="rotulo">Nombre: </td>
+							<td><input type="text" id="nombreForm" size="30" onchange="botonCancelar()" placeholder="Nombre de más de 2 caracteres" required autofocus></td>
+						</tr>
+						<tr>
+							<td class="rotulo">Apellidos: </td>
+							<td><input type="text" id="apellidosForm" size="30" onchange="botonCancelar()" placeholder="Apellidos de más de 2 caracteres" required></td>
+						</tr>
+						
+						<tr>
+							<td class="rotulo">Fecha de nacimiento: </td>
+							<td class="derecha" ><input type="date" id="fNacForm" onchange="botonCancelar()" required></td>
+						</tr>
+						<tr>
+							<td class="rotulo">Nombre de Usuario:</td>
+							<td><input type="text" id="nickForm" size="30" placeholder="Nick" onchange="botonCancelar()" required></td>
+						<tr>
+							<td class="rotulo">Correo electrónico:</td>
+							<td><input type="email" id="emailForm" size="45" placeholder="cuenta@servidor.com"  onchange="botonCancelar()"required/></td>
+						</tr>
+						<tr>
+							<td class="rotulo">Password: </td>
+							<td colspan="2"><input type="password" id="passForm" size="15" onchange="botonCancelar()" placeholder="Contraseña de al menos 6 caracteres" required/> </td>
+						</tr>
+						<tr>
+							<td class="rotulo">Repetir password:</td>
+							<td colspan="2"><input type="password" id="pass2Form" size="45" placeholder="Repite la contraseña introducida" required/> </td>
+						</tr>
+					</table>
+				</form>
+				<div class="botonderecha">
+					<button id="botonBorrarForm" style="visibility:hidden" onclick="cancelarCambios()">Cancelar</button> <!--resetea el formulario-->
+					<button id="botonRegistrar"  onclick="validarForm()">Registrar</button>
+					<button id="botonModificar" style="display:none" onclick="guardarCambios()">Guardar cambios</button>
+	
+				</div>
+			</article>
+		</section>	
+		<section id="registrados">
+			<p id="vacia">No hay usuarios registrados</p>	<!-- Se mostrará el mensaje cuando no existan usuarios registrados-->
+			<hr>
+			<table id="tregistrados" style="visibility:hidden">	<!--Inicialmente, la tabla estará oculta, se mostrará cuando existan usuarios registrados-->
+				<caption><h3>Listado de usuarios registrados</h3></caption>
+				<tr>
+					<th>Nombre de usuario</th>
+					<th>Nombre</th>
+					<th>Edad</th>
+					<th>Correo electrónico</th>
+					<th>Eliminar</th>
+					<th>Modificar</th>
+				</tr>
+			</table>
+						
+		</section> 
+	
+	<footer>Copyright <span id="copyright"> ©TCL - </span>
+		<script>
+			var hoy=new Date();
+			document.write(hoy.getDate() + "/" + ("0".concat(hoy.getMonth()+1)).slice(-2) + "/" + hoy.getFullYear() + "-" 
+						+ hoy.getHours() + ":" + ("0".concat(hoy.getMinutes())).slice(-2));
+		</script>
+	</footer>
+	</main>
+	
+	
+</body>
+</html>

@@ -1,0 +1,323 @@
+/*
+CREATE TABLE SOCIOS
+	(num_socio INT(4) PRIMARY KEY,
+	apellidos VARCHAR(14) UNIQUE,
+	telefono CHAR(9) NOT NULL,
+	fecha_alta DATE DEFAULT „2000-01-01‟,
+	direccion VARCHAR(20),
+	codigo_postal INT(5) CHECK (codigo_postal BETWEEN 28000 AND 28999));
+*/
+
+CREATE TABLE Socios
+	(num_socio INT(4),
+	apellidos VARCHAR(14),
+	telefono CHAR(9),
+	fecha_alta DATE,
+	direccion VARCHAR(20),
+	codigo_postal INT(5),
+	CONSTRAINT PK_SOCIOS PRIMARY KEY (num_socio),
+	CONSTRAINT UQ_APELLIDOS UNIQUE (apellidos),
+	CONSTRAINT CK_CODIGO
+	CHECK (codigo_postal BETWEEN 28000 AND 28999) );
+
+CREATE TABLE prestamos
+	(num_prestamo INT(2) PRIMARY KEY,
+	num_socio INT(4) ,
+	CONSTRAINT FK_SOCIO_PRESTAMOS FOREIGN KEY (num_socio)
+		REFERENCES Socios(num_socio)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL );
+
+		
+---------------------------------------------------------------
+-- TABLA FARMACIA
+
+CREATE TABLE CLIENTES
+	(id_cliente INT(6) PRIMARY KEY,
+	nombre VARCHAR(14),
+	tipo VARCHAR(5));
+	
+CREATE TABLE CLIENTES_CREDITO
+	(id_cliente INT(6),
+	cuenta_bancaria CHAR(16) UNIQUE,
+	fecha_pago DATE DEFAULT '2000-01-01',
+	CONSTRAINT FK_ID_CLIENTE FOREIGN KEY (id_cliente)
+		REFERENCES CLIENTES(id_cliente)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE VENTA
+	(id_medicamento INT(9),
+	id_cliente INT(6),
+	fecha_compra DATE DEFAULT '2000-01-01',
+	unidades INT(4),
+	CONSTRAINT FK_ID_CLIENTEV FOREIGN KEY (id_cliente)
+		REFERENCES CLIENTES(id_cliente)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICAMENTOS FOREIGN KEY (id_medicamento)
+		REFERENCES MEDICAMENTOS(id_medicamento)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE MEDICAMENTOS
+	(id_medicamento INT(9) PRIMARY KEY,
+	nombre VARCHAR(14),
+	tipo VARCHAR(14),
+	unidades_stock INT(4),
+	unidades_vendidas INT(4),
+	precio INT(4));
+	
+CREATE TABLE COMPRAS
+	(id_laboratorio INT(4),
+	id_medicamento INT(9),
+	CONSTRAINT FK_ID_LABORATORIO FOREIGN KEY (id_laboratorio)
+		REFERENCES LABORATORIO(id_laboratorio)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICAMENTOSC FOREIGN KEY (id_medicamento)
+		REFERENCES MEDICAMENTOS(id_medicamento)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE LABORATORIO
+	(id_laboratorio INT(4) PRIMARY KEY,
+	nombre VARCHAR(14),
+	telefono INT(9),
+	direccion VARCHAR(25),
+	fax INT(9),
+	nombre_contacto VARCHAR(14));
+	
+---------------------------------------------------------------
+-- TABLA HOSPITAL
+
+CREATE TABLE HOSPITAL--
+	(nombre VARCHAR(15),
+	codigo_hosital INT(9) PRIMARY KEY,
+	n_camas INT(5));
+	
+CREATE TABLE PROPIO--
+	(codigo_hosital INT(9),
+	codigo_tipo BOOLEAN PRIMARY KEY,
+	CONSTRAINT FK_ID_PROPIO FOREIGN KEY (codigo_hosital)
+		REFERENCES HOSPITAL(codigo_hosital)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE CONCERTADO--
+	(codigo_hosital INT(9),
+	cod_area INT(5),
+	servicios VARCHAR(10),
+	presupuesto INT(9),
+	CONSTRAINT FK_ID_CONCERTADO FOREIGN KEY (codigo_hosital)
+		REFERENCES HOSPITAL(codigo_hosital)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_AREA_CON FOREIGN KEY (cod_area)
+		REFERENCES AREA (cod_area)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE HOSPITALIZADO_SEGUNDA
+	(codigo_tipo BOOLEAN,
+	codigo_medico INT(9),
+	codigo_segunda INT(7),
+	fecha DATE,
+	CONSTRAINT FK_ID_TIPO_SE FOREIGN KEY (codigo_tipo)
+		REFERENCES PROPIO (codigo_tipo)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICO_SE FOREIGN KEY (codigo_medico)
+		REFERENCES MEDICO (codigo_medico)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_HOSPITALIZADO_SE FOREIGN KEY (codigo_segunda)
+		REFERENCES SEGUNDA(codigo_segunda)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE HOSPITALIZADO_PRIMERA
+	(codigo_hosital INT(9),
+	codigo_medico INT(9),
+	codigo_primera INT(7),
+	fecha DATE DEFAULT '2000-01-01',
+	CONSTRAINT FK_HOSITAL_PRIM FOREIGN KEY (codigo_hosital)
+		REFERENCES HOSPITAL (codigo_hosital)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICO_PRI FOREIGN KEY (codigo_medico)
+		REFERENCES MEDICO (codigo_medico)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_HOSPITALIZADO_PRI FOREIGN KEY (codigo_primera)
+		REFERENCES PRIMERA (codigo_primera)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE MEDICO--
+	(nombre VARCHAR(10),
+	codigo_medico INT(9) PRIMARY KEY,
+	telefono INT(9));
+
+CREATE TABLE ES_JEFE--
+	(codigo_medico INT(9),
+	codEsJefe INT(9),
+	CONSTRAINT FK_ID_MEDICO FOREIGN KEY (codigo_medico)
+		REFERENCES MEDICO (codigo_medico)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICO_JEFE FOREIGN KEY (codEsJefe)
+		REFERENCES MEDICO (codigo_medico)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE ADSCRITO--
+	(cod_area INT(5),
+	codigo_medico INT(9),
+	CONSTRAINT FK_ID_AREA_ADSCRITO FOREIGN KEY (cod_area)
+		REFERENCES AREA (cod_area)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICO_AREA FOREIGN KEY (codigo_medico)
+		REFERENCES MEDICO (codigo_medico)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE AREA--
+	(cod_area INT(5) PRIMARY KEY,
+	n_habitantes INT(8));
+	
+CREATE TABLE PRIMERA--
+	(codigo_primera INT(7) PRIMARY KEY,
+	cod_tipo INT(1),
+	CONSTRAINT FK_ID_ASEGURADO_PRI FOREIGN KEY (cod_tipo)
+		REFERENCES ASEGURADO (cod_tipo)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE SEGUNDA--
+	(codigo_segunda INT(7) PRIMARY KEY,
+	cod_tipo INT(1),
+	CONSTRAINT FK_ID_ASEGURADO FOREIGN KEY (cod_tipo)
+		REFERENCES ASEGURADO (cod_tipo)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE ASEGURADO--
+	(cod_tipo INT(1) PRIMARY KEY,
+	nombre VARCHAR(10),
+	n_correlativo INT(9),
+	f_nacimiento DATE,
+	n_poliza INT(9),
+	CONSTRAINT POLIZA FOREIGN KEY (n_poliza)
+		REFERENCES POLIZA (n_poliza)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE POLIZA--
+	(n_poliza INT(9) PRIMARY KEY,
+	datos_poliza VARCHAR(25));
+	
+-----------------------------------------------------------------
+-- TABLA CENTRO INVESTIGACION
+
+CREATE TABLE PROYECTO REVISION
+	(nombre_proyecto VARCHAR(15),
+	motivo_revision VARCHAR(25),
+	CONSTRAINT REVISION_PROYECTO FOREIGN KEY (nombre_proyecto)
+		REFERENCES PROYECTO (nombre_proyecto)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE PROYECTO
+	(nombre_proyecto VARCHAR(15) PRIMARY KEY,
+	fecha DATE DEFAULT '2000-01-01');
+	
+CREATE TABLE PROYECTO NUEVO
+	(nombre_proyecto VARCHAR(15),
+	presupuesto INT(9)
+	CONSTRAINT PROYECTO_NUEVO FOREIGN KEY (nombre_proyecto)
+		REFERENCES PROYECTO (nombre_proyecto)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE INVESTIGADOR
+	(dni CHAR(9) PRIMARY KEY,
+	nombre VARCHAR(15),
+	apellidos VARCHAR(20),
+	localidad VARCHAR(10),
+	telefono CHAR(9),
+	nombre_proyecto VARCHAR(15),
+	CONSTRAINT PROYECTO_INVESTIGADOR FOREIGN KEY (nombre_proyecto)
+		REFERENCES PROYECTO (nombre_proyecto)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE JEFE
+	(dni_investigador CHAR(9),
+	dni_jefe CHAR(9),
+	CONSTRAINT PROYECTO_INVESTIGADOR FOREIGN KEY (dni_investigador)
+		REFERENCES INVESTIGADOR (dni)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT PROYECTO_INVESTIGADOR FOREIGN KEY (dni_jefe)
+		REFERENCES INVESTIGADOR (dni)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+CREATE TABLE CONFERENCIA
+	(nombre VARCHAR(15) PRIMARY KEY,
+	fecha DATE PRIMARY KEY,
+	hora_inicio TIME,
+	n_horas INT(2),
+	lugar VARCHAR(10));
+
+CREATE TABLE INVESTIGADOR_CONFERENCIA
+	(nombre_conferencia VARCHAR(15),
+	dni_investigador CHAR(9),
+	CONSTRAINT CONFERENCIA_INVESTIGADOR FOREIGN KEY (dni_investigador)
+		REFERENCES INVESTIGADOR (dni)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT CONFERENCIA FOREIGN KEY (nombre_conferencia)
+		REFERENCES CONFERENCIA (nombre)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+-----------------------------------------------------------------
+-- TABLA MEDICAMENTOS
+
+CREATE TABLE CLIENTE
+	(id INT(9) PRIMARY KEY,
+	nombre VARCHAR(15),
+	cuenta_bancaria CHAR(20),
+	fecha_pago DATE);
+
+CREATE TABLE VENTA
+	(id_cliente INT(9),
+	id_medicamento INT(9),
+	unidades INT(7),
+	fecha DATE,
+	CONSTRAINT ID_CLIENTE FOREIGN KEY (id_cliente)
+		REFERENCES CLIENTE (id)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT ID_MEDICAMENTO FOREIGN KEY (id_medicamento)
+		REFERENCES MEDICAMENTO (id)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+	
+CREATE TABLE MEDICAMENTO
+	()
+	
+CREATE TABLE COMPRA
+	()
+
+CREATE TABLE LABORATORIO
+	()
+	
+-----------------------------------------------------------------
+-- TABLA VIDEOCLUB
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Registrar Formulario</title>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="formulario.js"></script>
+	<link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+<main>
+
+<header>
+	<h1>REGISTRO DE USUARIOS</h1>
+</header>
+
+<section>
+<form id="formulario">
+<h3>Por favor, introduzca los siguientes datos:</h3>
+	<hr>
+	<p id="demo"></p>
+	<table>
+		<tr>
+			<td>Nombre: </td>
+			<td><input type="text" id="nombre" size="30" required></td>
+		</tr>
+		<tr>
+			<td>Apellidos: </td>
+			<td><input type="text" id="apellidos" size="30" required></td>
+		</tr>
+		
+		<tr>
+			<td>Fecha de nacimiento: </td>
+			<td><input type="date" id="fechaNac" required></td>
+		</tr>
+			
+		<tr>
+			<td>Nombre de Usuario: </td>
+			<td><input type="text" id="nombreUsuario" required></td>
+		</tr>
+		<tr>
+			<td>Correo Electronico: </td>
+			<td><input type="text" id="correo" required></td>
+		</tr>
+		<tr>
+			<td>Contraseña: </td>
+			<td><input type="password" id="passw" required></td>
+		</tr>
+		<tr>
+			<td>Verificación contraseña: </td>
+			<td><input type="password" id="passwV" required></td>
+		</tr>
+	</table>
+<button onclick="validarUsuario()">Crear Usuario</button>
+</form>
+</section>
+
+<section>
+<form>
+	<table width="100%" id="generarTabla">
+
+	</table>
+</form>
+</section>
+
+</main>
+</body>
+</html>

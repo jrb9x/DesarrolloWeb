@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p id="person">Muestra el resultado aquí.</p> 
+<p id="propietario">Muestra el resultado aquí.</p> 
+<p id="casa">Muestra el resultado aquí.</p> 
+
+<script>
+
+function persona(nombre, apellido, DNI, imagen, cuentaBancaria){
+this.nombre =nombre ;
+this.apellido = apellido;
+this.DNI = DNI;
+this.imagen= imagen;
+this.cuentaBancaria = cuentaBancaria;
+}
+
+function Casa(Precio, Direccion, Metro, Imagen, propietario) {
+this.Precio = Precio;
+this.Direccion = Direccion;
+this.Metro = Metro;
+this.Imagen = Imagen;
+this.propietario = propietario;
+
+}
+function cuentaBancaria(NumeroCuenta, CantidadDinero) {
+this.NumeroCuenta = 1112223330;
+this.CantidadDinero = 8500;
+}
+var CuentaBancaria2 = new cuentaBancaria(0001112223, 6000);
+var propietario = new persona("Pepe","Rodriguez",50,"paco.jpg",CuentaBancaria2) ;
+
+var CuentaBancaria1 = new cuentaBancaria(0001113333, 11000);
+var comprador = new persona("Pepito","Grillo",65,"paco.jpg",CuentaBancaria1) ;
+
+function mostrarPersona(person){
+document.getElementById("person").innerHTML = person["nombre"+""+"apellido"+""+"DNI"+""+ imagen+ "cuentaBancaria"];
+}
+function mostrarCasa(casa){
+document.getElementById("casa").innerHTML  = casa.Precio+""+ casa.Direccion+ "" + casa.Imagen+"" + casa.propietario;
+
+function comprarCasa(CuentaBancaria2, persona,cuentaBancaria){
+document.getElementById("demo").innerHTML  = casa.Casa;
+}
+</script>
+<button onclick="mostrarPersona(comprador)">Mostrar Comprador</button>
+<button onclick="mostrarPersona(propietario)">Mostrar Vendedor</button>
+<button onclick="mostrarCasa(Casa)">Mostrar Casa</button>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+*{
+	font-family:verdana, arial;
+	
+	margin:2px;
+}
+
+body{
+	
+	text-align:center;
+}
+
+main
+{	
+	width:980px;
+	text-align:left;
+	font-size:12px;
+	margin:5px auto;
+}
+
+h1{
+	box-shadow: #006666 5px 5px 10px ;
+	color:#006666;
+	text-shadow: #006666 2px 2px 2px;
+}
+h3, h4{
+	color:#006666;
+	margin-bottom:5px;
+}
+h4{
+	font-weight:normal;
+	font-size:12px;
+}
+
+hr{
+	margin-bottom:15px;
+}
+header{
+	width:960px;
+	height:60px;
+	text-align:center;
+	
+}
+#registro{
+	width:440px;
+	height:330px;	
+	float:left;
+	border:3px double #006666;
+	padding:10px;
+}
+
+
+#visualizarDatos{
+	width:480px;
+	height:330px;	
+	float:left;
+	border:3px double #006666;
+	padding:10px;
+}
+
+
+.rotulo{ /*color de los rótulos de los campos*/
+	color:#006666;
+}
+
+#registro .rotulo{ /* ancho de los campos de rótulo en el formulario de registro */
+	width:220px;
+	height:35px;
+}
+
+#visualizarDatos .rotulo{  /* ancho de los campos de rótulo en la visualización */
+	width:110px;
+}
+#datos table{border-collapse:collapse;}
+#datos tr:nth-child(odd){ background: #E0E0D1; }
+#datos tr:nth-child(even){background: #F5F5F0; }
+
+#registrados{
+	width:950px;
+	height:150px;
+	clear:both;
+	border:3px double #006666;
+	padding:10px;
+}
+table{
+	width:95%;
+	border-spacing:1px;
+}
+table td{
+	height:35px;
+	text-align:top;
+	padding-left:4px;	
+}
+input{
+	height:30px;
+	margin: 5px;
+	padding-right:0px;
+}
+
+
+
+
+.fecha{
+	width:100px;
+	color:#194719;
+}
+
+.años{
+	color:#006666;
+	text-align:left;
+}
+
+button { /*configuración de los botones */
+	border-radius:5px;
+	font-size:14px;
+	background-color:#66A3E0;
+	color:#FFFFE0;
+}
+
+.botonderecha{ /* a la derecha de la caja*/
+	text-align:right;
+	margin-bottom:0px;
+}
+.centrado{
+	text-align:center;
+}
+
+.rotuloregistrados{
+	color:#006666;
+	margin:10px;
+	padding-right:10px;
+	margin-bottom:20px;
+	font-weight:normal;
+	
+}
+.datotexto{
+	color:#194719;
+}

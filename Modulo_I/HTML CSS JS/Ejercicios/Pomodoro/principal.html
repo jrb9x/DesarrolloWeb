@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title id="titulo">POMODORO</title>
+	<link rel="shortcut icon" href="p.ico" type="image/x-icon"/>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="pomodoro.css">
+	<script src="pomodoro.js"></script>
+</head>
+
+<body onload="tareaEstandar()">
+<main id="contador">
+
+<header><h1>POMODORO</h1></header>
+
+<section>
+<table id="metodoT">
+	<tr>
+		<td id="tiempoPomodoro"><button onclick="tiempoTarea()">Pomodoro</button></td>
+		<td id="descansoCorto"><button onclick="descansoCorto()">Descanso Corto</button></td>
+		<td id="descansoLargo"><button onclick="descansoLargo()">Descanso Largo</button></td>
+	</tr>
+</table>
+<div id ="displayReloj"></div>
+
+<table id="acciones">
+	<tr>
+		<td id="pausar"><button id="start" onclick="countDown()">Start</button></td>
+		<td id="booleano"></td>
+		<td id="parar"><button id="stop" onclick="stopCountDown()">Stop</button></td>
+	</tr>
+</table>
+
+</section>
+
+<aside>
+<table>
+	<tr>
+	<td><form id="formulario"><table>
+		<h2>CONFIGURAR POMODORO</h2>
+		<tr>
+		<td>Tarea a realizar: </td><td><input id="tarea" type="text"></input></td>
+		</tr><tr>
+		<td>Pomodoros: </td><td><input id="pomodoro" type="number" min="1" max="100"></input></td>
+		</tr><tr>
+		<td>Tiempo Pomodoro: </td><td><input id="tTarea" type="number" min="1" max="59"></input></td>
+		</tr><tr>
+		<td>Tiempo Descanso Corto: </td><td><input id="tDesCor" type="number" min="1" max="59"></input></td>
+		</tr><tr>
+		<td>Tiempo Descanso Largo: </td><td><input id="tDesLar" type="number" min="1" max="59"></input></td>
+		</tr>
+		<tr>
+			<td>Alarma: </td><td>
+			<select id="mySelect">
+				<option value="1">Sound-of-dog</option>
+				<option value="2">Indian_Peafowl</option>
+				<option value="3">On_hold_tone</option>
+				<option value="4">Explosions</option>
+			</select>
+			</td>
+		</tr>
+	</form></table></td>
+	<td><p id="metodoP">
+	Periodos de tiempo personalizables acorde con sus necesidades. 
+	Basta con añadir un nombre a la tarea y el tiempo que desea en minutos 
+	para cada periodo. Puede elegir el sonido de la alarma.
+	</p></td>
+	</tr>
+</table>
+	
+	<button onclick="registrarTarea()">Registrar tarea</button>
+	<p id="errorDatos"></p>
+
+</aside>
+
+<section width="100%" id="generarTabla">
+<h2>TAREAS REGISTRADAS</h2>
+</section>
+
+<section width="100%" id="detallarTabla">
+<h2>DETALLES DE TAREAS</h2>
+</section>
+
+<footer>
+
+<p>Copyright © Jorge Rivas</p>
+
+</footer>
+</main>
+</body>
+</html>
+ 

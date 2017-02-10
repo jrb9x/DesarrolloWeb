@@ -1,0 +1,28 @@
+<!Doctype html>
+<html>
+<body>
+<h1>Pruebas Window</h1>
+
+<button onclick= "nueva()">Abrir Ventana</button>
+<button onclick= "cerrar()">Cerrar Ventana</button>
+
+<script>
+/*var nuevaVentana;
+
+function abrirNuevaVentana(){
+	nuevaVentana = window.open("http://www.as.com", "segundaPag","toolbar=no,location=yes,resizable=yes,height=400" );
+}
+function cerrar(){
+	window.close();
+}*/
+
+function nueva() {//window.confirm 
+if(confirm("¿Seguro que quieres cerrar la ventana?")){
+close();
+}else{
+alert("Gracias por no despedirte de nosotros aún");
+}
+}
+</script>
+</body>
+</html>

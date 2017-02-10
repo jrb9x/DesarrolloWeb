@@ -1,0 +1,117 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Registrar Formulario</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="estilo.css">	<!-- Fichero de hoja de estilo externa-->
+	<script src="myscript.js"></script>  		<!-- Fichero javascript externo-->
+</head>
+<body>
+<main>
+<header>
+	<h1>REGISTRO DE USUARIOS</h1>
+</header>
+	<section id="registro">
+	<form name="registro" id="formulario" onsubmit="errorformulario()">
+	<h3>Por favor, introduzca los siguientes datos:</h3>
+		<hr>
+		<table>
+			<tr>
+				<td class="rotulo">Nombre: </td>
+				<td><input type="text" id="nombre" size="30" required></td>
+			</tr>
+			<tr>
+				<td class="rotulo">Apellidos: </td>
+				<td><input type="text" id="apellidos" size="30" required></td>
+			</tr>
+			
+			<tr>
+				<td class="rotulo">Fecha de nacimiento: </td>
+				<td class="derecha" ><input type="date" id="fechaNac" required></td>
+			</tr>
+			
+			<tr>
+				<td class="rotulo">Fecha de obtención carnet de conducir: </td>
+				<td><input type="date" id="fechaCarnet" required></td>
+			</tr>
+			<tr>
+				<td class="rotulo"> Fecha finalización estudios: </td>
+				<td><input type="date" id="fechaEstudios" required></td>
+			</tr>
+							
+		</table>
+		<button type="reset" id="limpiar" onclick="limpiarDatos()">Limpiar</button> <!--llama a la función limpiarDatos para resetear el formulario-->
+		<div class="botonderecha">
+			<button onclick="registrarForm()">Registrar</button> <!--llama a la función registrarForm() para almacenar los datos introducidos-->
+		</div>
+	</form>
+		
+	</section>
+	
+	<section id="visualizarDatos">
+		<h3>Últimos datos registrados:</h3>
+		<hr>
+		<table>
+			<tr class="centrado">
+				<td><h4>Cambiar formato fechas</h4>
+					<button type="button" onclick="formatoFechaYMD()">YYYY-MM-DD</button><br/>
+					<button type="button" onclick="formatoFechaDMY()">DD/MM/YYYY</button>
+				</td>
+				<td>
+					<h4>Mostrar detalle fechas</h4>
+						<button type="button" onclick="mostrarAnnyios()">Años</button>
+						<button type="button" onclick="mostrarMeses()">Meses</button>
+						<button type="button" onclick="mostrarDias()">Días</button></td>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<table id="datos">
+			<tr>
+				<td class="rotulo">Nombre: </td>
+				<td colspan="3" class="datotexto" id="nombreActual"></td>
+			</tr>
+			<tr>
+				<td class="rotulo">Primer Apellido: </td>
+				<td class="datotexto" id="apellido1Actual"></td>
+				<td class="rotulo">Segundo Apellido: </td>
+				<td class="datotexto" id="apellido2Actual"></td>
+			</tr>
+			<tr>
+				<td class="rotulo">Fecha de Nacimiento:</td>
+				<td class="fecha" id="nacActual"></td>
+				<td class="rotulo">Edad: </td>
+				<td class="años" id="edadActual"></td>
+			</tr>
+			<tr>
+				<td class="rotulo">Fecha carnet de conducir:</td>
+				<td class="fecha" id="fcarnetActual"></td>
+				<td class="rotulo">Antigüedad carnet: </td>
+				<td class="años" id="anCarnetActual"></td>
+			</tr>
+			<tr>
+				<td class="rotulo">Fecha fin estudios:</td>
+				<td class="fecha" id="ftituloActual"></td>
+				<td class="rotulo">Antigüedad estudios: </td>
+				<td class="años" id="anTituloActual"></td>
+			</tr>
+		</table>	
+	</section>
+	<section id="registrados">
+		<h3>Usuarios Registrados</h3>
+		<hr>
+		<div class="rotuloregistrados">
+		Primero: <span class="datotexto"id="first_nombre"></span> <br/>
+		<p></p>
+		</div>	
+		<div class="rotuloregistrados">
+		Último: <span class="datotexto" id="last_nombre"></span>
+			<br/>
+		</div>	
+		<div class="botonderecha">	
+			<button  onclick="eliminarUltimo()">Eliminar último</button>
+		</div>	
+	</section>
+</main>	
+</body>
+</html>

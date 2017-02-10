@@ -1,0 +1,80 @@
+CREATE DATABASE IF NOT EXISTS farmaciaprueba;
+USE farmaciaprueba;
+
+
+-- TABLA CLIENTES --
+
+CREATE TABLE CLIENTES
+	(id_cliente	INT(6) PRIMARY KEY,
+	nombre		VARCHAR(14),
+	tipo		VARCHAR(11));
+	
+insert into clientes values (200001, 'PACO', 'CREDITO');
+insert into clientes values (200002, 'MARIO', 'SIN CREDITO');
+
+-- TABLA CREDITO --
+
+CREATE TABLE CLIENTES_CREDITO
+	(id_cliente		INT(6),
+	cuenta_bancaria	CHAR(16) UNIQUE,
+	fecha_pago		DATE DEFAULT '2016-11-01',
+	CONSTRAINT FK_ID_CLIENTE FOREIGN KEY (id_cliente)
+		REFERENCES CLIENTES(id_cliente)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+INSERT INTO CLIENTES_CREDITO VALUES (200001, 'ES21000000816954', '2016-11-02');
+
+-- TABLA CREDITO --
+
+	
+CREATE TABLE VENTA
+	(id_medicamento INT(9),
+	id_cliente		INT(6),
+	fecha_compra 	DATE DEFAULT '2000-01-01',
+	unidades 		INT(4),
+	CONSTRAINT FK_ID_CLIENTEV FOREIGN KEY (id_cliente)
+		REFERENCES CLIENTES(id_cliente)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICAMENTOS FOREIGN KEY (id_medicamento)
+		REFERENCES MEDICAMENTOS(id_medicamento)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+-- TABLA CREDITO --
+
+
+CREATE TABLE MEDICAMENTOS
+	(id_medicamento INT(9) PRIMARY KEY,
+	nombre VARCHAR(14),
+	tipo VARCHAR(14),
+	unidades_stock INT(4),
+	unidades_vendidas INT(4),
+	precio INT(4));
+	
+-- TABLA CREDITO --
+
+
+CREATE TABLE COMPRAS
+	(id_laboratorio INT(4),
+	id_medicamento INT(9),
+	CONSTRAINT FK_ID_LABORATORIO FOREIGN KEY (id_laboratorio)
+		REFERENCES LABORATORIO(id_laboratorio)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL,
+	CONSTRAINT FK_ID_MEDICAMENTOSC FOREIGN KEY (id_medicamento)
+		REFERENCES MEDICAMENTOS(id_medicamento)
+		ON UPDATE CASCADE
+		ON DELETE SET NULL);
+
+-- TABLA CREDITO --
+
+
+CREATE TABLE LABORATORIO
+	(id_laboratorio INT(4) PRIMARY KEY,
+	nombre VARCHAR(14),
+	telefono INT(9),
+	direccion VARCHAR(25),
+	fax INT(9),
+	nombre_contacto VARCHAR(14));

@@ -1,0 +1,166 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+body{
+	font-family:verdana, arial;
+	text-align:center; /* el main irá al centro*/
+}
+
+h1{
+	font:bold 20px;
+	color:#000066;
+	text-align:center;
+	text-shadow: #005C5C 2px 2px 2px;
+}
+h2{
+	font:bold 16px;
+	color:#5C5C3D;
+	text-align:left;
+	
+}
+h3{
+	font:bold 14px;
+	color:#003D7A;
+	text-align:left;
+	font-weight:bold;
+	padding:5px;
+	
+	
+}
+main{
+	width:960px;
+	margin:15px auto;
+	font:14px Verdana, Arial;
+	text-align:left; /*todo lo que ponga en el main irá a la izquierda*/
+	
+}
+
+header {
+	/*background-color:#A3C2C2;*/
+	/*background-image:url("fondo.png");*/
+	margin-top:10px;
+	text-align:left;
+	background: linear-gradient(10deg, #CCEBF5, #CCFFCC);
+	border-radius:5px;
+	
+	
+}
+section{
+	width:960px;
+	margin:10px;
+	float:left;
+}
+article{
+	margin:10px;
+	float:left;
+	
+}
+#imagen{
+	width:300px;
+	margin:30px 5px;
+	box-shadow: rgb(150,150,150) -5px -5px 5px ; 	
+}
+
+#registrados{
+	width:900px;
+	clear:none;
+}
+table{
+	
+	border-spacing:0px 5px;
+	font-size:16px;
+	text-align:left;
+	border-collapse:collapse;
+	
+}
+
+td{
+	padding-left:5px;
+	height:30px;
+}
+
+#tregistrados{
+	width:800px;
+	font-size:14px;
+}
+
+
+#imagen{
+	text-align:center;
+	
+	
+	
+}
+
+input{
+	height:20px;
+	width: 95%;
+	margin: 5px;
+	padding:0 5px;
+}
+
+#botonModificar {
+	style.display:none;
+}
+
+
+	
+#registro .rotulo{ /* ancho de los campos de rótulo en el formulario de registro */
+	width:120px;
+	height:30px;
+	font-size:12px;
+	color:#003D5C;
+}
+
+button { /*configuración de los botones */
+	border-radius:5px;
+	font-size:14px;
+	width:120px;
+	padding:2px 0px;
+	text-align:center;
+	background-color:#66A3E0;
+	color:#FFFFE0;
+}
+/* Cambia el color del botón. No lo aplico, lo dejo para acordarme
+button[id="botonBorrarForm"] { 
+	background-color:red; 
+	}
+*/
+.botonderecha{ /* a la derecha de la caja */
+	text-align:right;
+	margin-bottom:0px;
+}
+
+#enviar{
+	width:120px;
+	padding:2px 0px;
+	text-align:center;
+	background-color:#66A3E0;
+	color:#FFFFE0;
+}
+
+
+th{
+	color:#CCF5CC;
+	background-color:#008F00;
+	padding:3px;
+}
+
+#registrados tr:nth-child(odd){ background: #CCEBD6; } /*configuración para las filas impares*/
+#registrados tr:nth-child(even){background: #E6F5EB; } /*configuración para las filas pares*/
+
+#error{ /*color para los mensajes de error*/
+	color:red;
+}
+
+footer{
+	border-top:1px solid #145214;
+	margin-top:50px;
+	padding-top:10px;
+	clear:both;
+	text-align:center;
+	font: italic 10px Arial;
+}	
+

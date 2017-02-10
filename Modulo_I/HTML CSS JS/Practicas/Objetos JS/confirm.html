@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<HTML>
+<HEAD>
+<TITLE>Abriendo y cerrando ventanas con Javascript</TITLE>
+
+<SCRIPT>
+	var nuevaVentana;
+	function nueva() {
+	nuevaVentana=nuevaVentana=window.open("", "segundaPag", "width=300,height=300" );
+	nuevaVentana.document.write("<HTML><HEAD><TITLE>"+
+								"Sin Título</TITLE></HEAD>\n");
+	nuevaVentana.document.write("<BODY><form>\n");
+	nuevaVentana.document.write("<input type='button' "+
+								"value='Cerrar' onClick='window.close();'>\n");
+	nuevaVentana.document.write("</form>\n");
+	nuevaVentana.document.write("</BODY></HTML>\n");
+	nuevaVentana.document.close();
+	}
+</SCRIPT>
+
+<BODY>
+
+<FORM>
+<INPUT TYPE="button" VALUE="Abrir" onClick="nueva();"><br>
+</FORM>
+
+</BODY>
+</HTML>

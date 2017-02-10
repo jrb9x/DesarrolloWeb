@@ -1,0 +1,52 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font-family: 'Maven Pro', sans-serif;
+	text-align: center;
+	background-image: url("../Img/fondo.png");
+}
+label{
+	display: block;
+	padding: 5px;
+}
+h1{
+	padding: 20px;
+}
+form{
+	border: 1px solid #808080;
+	border-radius: 20px;
+	margin-left:300px;
+	margin-right:300px;
+	padding: 5px;
+}
+button, select, input{
+	border-radius: 5px;
+	font-family: 'Maven Pro', sans-serif;
+}
+button{
+	padding: 4px;
+	margin: 4px;
+	display: inline-block;
+	font-size: 20px;
+	font-family: 'Maven Pro', sans-serif;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	transition-duration: 0.4s;
+}
+input:focus, textarea:focus {
+  background   : rgba(0,0,0,.1);
+  border-radius: 5px;
+  outline      : none;
+}
+button:hover {
+	background: red;
+	outline   : none;
+}
+button:active {
+  background-color: #808080;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(4px);
+}

@@ -1,0 +1,116 @@
+/* Smartphones (Vertical y Horizontal) ----------- */
+body {
+	text-align: center;
+	background: #D7FFD7;
+	}
+	
+h1 { 
+	font: bold 25px verdana, sans-serif;
+	text-shadow: black 2px 2px 2px;
+	text-align:center;
+	}
+	
+h2{
+	text-align:center;
+}
+
+a {
+	text-decoration: none;
+}
+a:visited { 
+	color: green; 
+}
+	
+main {
+
+	margin: 5px auto;
+	text-align: left;
+	background: #D7FFD7;
+
+	}
+
+header{
+	box-shadow: #B9E89D 5px 5px 10px;
+	background: linear-gradient(to top, #FFFFFF, #B9E89D);
+	border-radius: 30px / 40px;
+	padding: 20px;
+	margin-bottom: 5px;
+}
+
+
+nav {
+	background: linear-gradient(to top, #FFFFFF, #54FFD6);
+	box-shadow: #54FFD6 5px 5px 10px;
+	padding: 5px;
+	border-radius: 30px / 40px;
+	font: bold 14px verdana, sans-serif;
+	text-align: center;
+	margin-bottom: 5px;
+	}
+ 
+table[class^="T1"]{
+	font: 12px verdana, sans-serif;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+aside {
+	float: left;
+	width: 91.5%;
+	padding: 15px;
+	background: linear-gradient(to top, #FFFFFF, #BBFFBA);
+	box-shadow: #BBFFBA 5px 5px 10px;
+	border-radius: 30px / 40px;
+	margin-bottom: 5px;
+
+}
+article {
+	background: linear-gradient(to top, #FFFFFF, #F0FFCA);
+	box-shadow: #F0FFCA 5px 5px 10px;
+	border-radius: 30px / 40px;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+section[class^="R1"]{
+	float: left;
+	width: 100%;
+	margin-left: 0px;
+	}
+
+section {
+	float: right;
+	margin-left: 5px;
+	}
+
+footer{
+	clear: both;
+	text-align: center;
+	padding: 20px;
+	border-top: 5px solid #0017FF;
+	background: #0017FF;
+	color: #FFFFFF;
+	}
+
+/* PCs de escritorio y portátiles ----------- */
+@media (min-width : 900px){
+
+main {
+	width: 960px;
+}
+
+nav {
+	width: 950px;
+}
+aside{
+	width: 220px;
+}
+
+section{
+	width: 705px;
+}
+	
+}
+
+}
+	
