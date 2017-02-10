@@ -31,7 +31,7 @@ Desarrollo de Aplicaciones con Tecnologías Web 2016/2017
    * Struts 2
   
   * Desarrollo de aplicaciones web distribuidas.
-   * Desarrollo distribuido: Spring y Hibernate
+   * Desarrollo distribuido: Spring e Hibernate
 
 ###3. Implantación de Aplicaciones Web en Entornos Internet, Intranet y Extranet. [Modulo III](https://github.com/jrb9x/DesarrolloWeb/tree/master/Modulo_III)
  * Aplicaciones web con movilidad: Android
