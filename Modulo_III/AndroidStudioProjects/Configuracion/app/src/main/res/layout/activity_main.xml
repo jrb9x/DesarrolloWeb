@@ -23,20 +23,20 @@
         android:showDividers="middle">
 
         <Button
-            android:id="@+id/BtnAceptar"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Aceptar" />
-
-        <Button
             android:id="@+id/BtnCancelar"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancelar" />
+
+        <Button
+            android:id="@+id/BtnAceptar"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Aceptar" />
     </LinearLayout>
 
     <EditText
