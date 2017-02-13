@@ -24,7 +24,15 @@ public class TercerActivity extends AppCompatActivity {
 
         TextView textView4 = (TextView) findViewById(R.id.textView4);
         TextView textView10 = (TextView) findViewById(R.id.textView10);
+        if(privacidad.equals("activada"))
+            textView10.setTextColor(0xFF00FF00);
+        else
+            textView10.setTextColor(0xffff0000);
         TextView textView11 = (TextView) findViewById(R.id.textView11);
+        if(bateria.equals("activado"))
+            textView11.setTextColor(0xFF00FF00);
+        else
+            textView11.setTextColor(0xffff0000);
 
         textView4.setText("Bienvenid@ " + nombreUsuario);
         textView10.setText(privacidad);
