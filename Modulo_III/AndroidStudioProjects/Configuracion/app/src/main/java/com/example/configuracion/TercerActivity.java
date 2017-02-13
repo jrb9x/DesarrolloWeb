@@ -21,10 +21,12 @@ public class TercerActivity extends AppCompatActivity {
         String email = getIntent().getStringExtra("email");
         String privacidad = getIntent().getStringExtra("privacidad");
         String bateria = getIntent().getStringExtra("bateria");
+        String tema = getIntent().getStringExtra("tema");
 
         TextView textView4 = (TextView) findViewById(R.id.textView4);
+        TextView textView7 = (TextView) findViewById(R.id.textView7);
         TextView textView10 = (TextView) findViewById(R.id.textView10);
-        if(privacidad.equals("activada"))
+        if(privacidad.equals("activado"))
             textView10.setTextColor(0xFF00FF00);
         else
             textView10.setTextColor(0xffff0000);
@@ -33,10 +35,13 @@ public class TercerActivity extends AppCompatActivity {
             textView11.setTextColor(0xFF00FF00);
         else
             textView11.setTextColor(0xffff0000);
+        TextView textView16 = (TextView) findViewById(R.id.textView16);
 
         textView4.setText("Bienvenid@ " + nombreUsuario);
+        textView7.setText(email);
         textView10.setText(privacidad);
         textView11.setText(bateria);
+        textView16.setText(tema);
 
         inicio = (Button) findViewById(R.id.button);
         inicio.setOnClickListener(new View.OnClickListener() {
