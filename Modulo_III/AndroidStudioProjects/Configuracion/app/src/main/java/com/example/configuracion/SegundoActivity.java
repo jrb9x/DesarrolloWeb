@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.ToggleButton;
@@ -21,7 +23,11 @@ public class SegundoActivity extends AppCompatActivity {
     private FloatingActionButton restaurar;
     private Switch privacidad;
     private ToggleButton bateria;
-    private String botonPrivacidad = "desactivado", botonBateria = "desactivado", tema;
+    private CheckBox wifi;
+    private RadioGroup rgOpciones;
+    private Spinner spinner;
+    private String botonPrivacidad = "Desactivado", botonBateria = "Desactivado",
+            tema = "Silver", opcion = "Automático";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +39,32 @@ public class SegundoActivity extends AppCompatActivity {
         restaurar = (FloatingActionButton) findViewById(R.id.button2);
         btnOK = (Button) findViewById(R.id.BtnOK);
         btnAtras = (Button) findViewById(R.id.BtnAtras);
+        wifi = (CheckBox) findViewById(R.id.checkBox);
+        rgOpciones = (RadioGroup) findViewById(R.id.GrbGrupo1);
+
+        rgOpciones.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radioButton:
+                        opcion = "G";
+                        break;
+                    case R.id.radioButton2:
+                        opcion = "3G";
+                        break;
+                    case R.id.radioButton3:
+                        opcion = "4G";
+                        break;
+                    case R.id.radioButton5:
+                        opcion = "Automático";
+                        break;
+                }
+            }
+        });
 
         String[] listaTema = {"Dark", "Light", "Blue", "Silver"};
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,listaTema);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaTema);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -56,11 +83,10 @@ public class SegundoActivity extends AppCompatActivity {
         privacidad.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    botonPrivacidad = "activado";
-                }
-                else{
-                    botonPrivacidad = "desactivado";
+                if (isChecked) {
+                    botonPrivacidad = "Activado";
+                } else {
+                    botonPrivacidad = "Desactivado";
                 }
             }
         });
@@ -68,20 +94,22 @@ public class SegundoActivity extends AppCompatActivity {
         bateria.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    botonBateria = "activado";
-                }
-                else{
-                    botonBateria = "desactivado";
+                if (isChecked) {
+                    botonBateria = "Activado";
+                } else {
+                    botonBateria = "Desactivado";
                 }
             }
         });
 
-        restaurar.setOnClickListener(new View.OnClickListener() {
+        wifi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                privacidad.setChecked(false);
-                bateria.setChecked(false);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Log.i("PRUEBA CHECKBOX", "TRUE");
+                } else {
+                    Log.i("PRUEBA CHECKBOX", "FALSE");
+                }
             }
         });
 
@@ -92,11 +120,13 @@ public class SegundoActivity extends AppCompatActivity {
                 String nombreUsuario = getIntent().getStringExtra("nombreUsuario");
                 String email = getIntent().getStringExtra("email");
 
-                intent.putExtra("tema", tema);
                 intent.putExtra("nombreUsuario", nombreUsuario);
                 intent.putExtra("email", email);
                 intent.putExtra("privacidad", botonPrivacidad);
                 intent.putExtra("bateria", botonBateria);
+                intent.putExtra("red", opcion);
+                intent.putExtra("tema", tema);
+
                 startActivity(intent);
             }
         });
@@ -106,6 +136,18 @@ public class SegundoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SegundoActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        restaurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                privacidad.setChecked(false);
+                bateria.setChecked(false);
+                wifi.setChecked(false);
+                rgOpciones.check(R.id.radioButton5);
+                int spinnerPosition = adapter.getPosition("Silver");
+                spinner.setSelection(spinnerPosition);
             }
         });
 

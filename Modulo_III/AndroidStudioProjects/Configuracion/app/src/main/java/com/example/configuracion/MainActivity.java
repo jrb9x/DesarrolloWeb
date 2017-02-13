@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout til1, til2, til3;
     private EditText editTextNombre, editTextEmail, editTextPassw;
     private Button buttonAceptar, buttonCancelar;
-    private boolean error;
+    private boolean errorNombre, errorEmail, errorPassw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,34 +43,36 @@ public class MainActivity extends AppCompatActivity {
                 String nombreUsuario = editTextNombre.getText().toString();
                 if(nombreUsuario.length() < 4) {
                     til1.setError("Error: Debe contener mas de 4 caracteres!");
-                    error = true;
+                    errorNombre = true;
                 }
                 else {
                     til1.setError(null);
-                    error = false;
+                    errorNombre = false;
                 }
 
                 String email = editTextEmail.getText().toString();
-                if(email.length() < 4){
+                Pattern patronEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                Matcher vEmail = patronEmail.matcher(email);
+                if(!vEmail.matches()){
                     til2.setError("Error: Email no tiene un formato valido!");
-                    error = true;
+                    errorEmail = true;
                 }
                 else {
-                    til1.setError(null);
-                    error = false;
+                    til2.setError(null);
+                    errorEmail = false;
                 }
 
                 String passw = editTextPassw.getText().toString();
                 if(passw.length() < 6){
                     til3.setError("Error: Debe contener mas de 6 caracteres!");
-                    error = true;
+                    errorPassw = true;
                 }
                 else {
-                    til1.setError(null);
-                    error = false;
+                    til3.setError(null);
+                    errorPassw = false;
                 }
 
-                if(!error) {
+                if(!errorNombre && !errorEmail && !errorPassw) {
                     Intent intent = new Intent(MainActivity.this, SegundoActivity.class);
                     intent.putExtra("nombreUsuario", nombreUsuario);
                     intent.putExtra("email", email);
@@ -83,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 editTextNombre.setText("");
                 editTextEmail.setText("");
                 editTextPassw.setText("");
+                til1.setError(null);
+                til3.setError(null);
+                til2.setError(null);
             }
         });
     }
