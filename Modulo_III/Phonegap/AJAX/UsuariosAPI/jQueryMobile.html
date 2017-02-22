@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Include jQuery Mobile stylesheets -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> <!-- Include the jQuery Mobile library -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone" data-dialog="false">
+    <div data-role="header">
+        <h1>Welcome To My Homepage</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>Welcome! If you click on the link below, it will take you to Page Two.</p>
+        <a href="#pagetwo" class="ui-btn" data-transition="flip">Go to Page Two</a>
+    </div>
+    <div data-role="footer">
+        <h1>Footer Text</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagetwo" data-dialog="false">
+    <div data-role="header">
+        <h1>Welcome To My Homepage</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>This is Page Two. If you click on the link below, it will take you to Page One.</p>
+        <a href="#myPopup" data-rel="popup" data-position-to="window" class="ui-btn ui-btn-inline ui-corner-all">Show
+            Popup</a>
+        <br>
+        <div data-role="popup" id="myPopup" class="ui-content" data-arrow="l" data-overlay-theme="b">
+            <a href="#" data-rel="back"
+               class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <p>This is a simple popup.</p>
+        </div>
+        <a href="#pagethree" class="ui-shadow ui-btn-inline ui-corner-all ui-btn"
+           data-transition="flip">Go to Page Three</a>
+    </div>
+    <div data-role="footer">
+        <h1>Footer Text</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagethree">
+    <div data-role="header">
+        <h1>Welcome To My Homepage</h1>
+        <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="#" data-icon="home">Home</a></li>
+                <li><a href="#" data-icon="arrow-r">Page Two</a></li>
+                <li><a href="#" data-icon="search">Search</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>My Content..</p>
+        <a href="#pagefour" class="ui-shadow ui-btn-inline ui-corner-all ui-btn"
+           data-transition="flip">Go to Page Four</a>
+    </div>
+    <div data-role="footer">
+        <h1>My Footer</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagefour">
+    <div data-role="panel" id="myPanel" data-display="overlay">
+        <h2>Panel Header</h2>
+        <p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+    </div>
+    <div data-role="header">
+        <h1>Page Header</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+        <p>Click on the button below to open the Panel.</p>
+        <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        <a href="#pagefive" class="ui-shadow ui-btn-inline ui-corner-all ui-btn"
+           data-transition="flip">Go to Page Five</a>
+    </div>
+    <div data-role="footer">
+        <h1>Page Footer</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagefive">
+    <div data-role="main" class="ui-content">
+        <h2>Ordered List:</h2>
+        <ol data-role="listview" data-inset = "true">
+        <li><a href="#">List Item</a></li>
+        <li><a href="#">List Item</a></li>
+        <li><a href="#">List Item</a></li>
+        </ol>
+        <h2>Unordered List:</h2>
+        <ul data-role="listview">
+            <li><a href="#">List Item</a></li>
+            <li><a href="#">List Item</a></li>
+            <li><a href="#">List Item</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

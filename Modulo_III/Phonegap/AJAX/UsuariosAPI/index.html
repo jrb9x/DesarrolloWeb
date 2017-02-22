@@ -1,0 +1,110 @@
+<!-- https://randomuser.me/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuarios</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var results = 5;
+            $.ajax({
+                url: 'https://randomuser.me/api/?results='+results,
+                dataType: 'json',
+                success: function (data) {
+                    var persona = [];
+                    var nombre = [];
+                    var src = [];
+
+                    for (i = 0; i < results; i++){
+                        persona[i] = data.results[i];
+
+                        nombre[i] = persona[i].name.title + " " +
+                            persona[i].name.first + " " +
+                            persona[i].name.last;
+                        src[i] = persona[i].picture.large;
+
+                        $("#usuario"+i).html(nombre[i]);
+                        $("#imagen"+i).attr("src", src[i]);
+                        $("#usuario"+i).click(function () {
+                            $("#detalleUsuario").siblings().hide(2000);
+                            $("#imagenDetalle").attr("src", src[i]);
+                            $("#nombreDetalle").html(persona[i].name.first);
+
+
+                        });
+                    }
+                    /*
+                    var nombre1 = persona1.name.title + " " +
+                        persona1.name.first + " " +
+                        persona1.name.last;
+                    var src1 = persona1.picture.large;
+
+                    var nombre2 = persona1.name.title + " " +
+                        persona2.name.first + " " +
+                        persona2.name.last;
+                    var src2 = persona2.picture.large;
+
+                    var nombre3 = persona1.name.title + " " +
+                        persona3.name.first + " " +
+                        persona3.name.last;
+                    var src3 = persona3.picture.large;
+
+                    var nombre4 = persona1.name.title + " " +
+                        persona4.name.first + " " +
+                        persona4.name.last;
+                    var src4 = persona4.picture.large;
+
+                    $("#div1").html(nombre1);
+                    $("#div1").click(function () {
+                        $("")
+                    });
+                    $("#my_image1").attr("src", src1);
+
+                    $("#div2").html(nombre2);
+                    $("#my_image2").attr("src", src2);
+
+                    $("#div3").html(nombre3);
+                    $("#my_image3").attr("src", src3);
+
+                    $("#div4").html(nombre4);
+                    $("#div4").attr("src", src4);*/
+                    //$('body').html('<pre>' + JSON.stringify(data,null,2)+ '</pre>');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="listaUsuarios">
+
+    <div id="usuario0">
+        <img id="imagen0" src="first.jpg"/>
+    </div>
+
+    <img id="imagen1" src="first.jpg"/>
+    <div id="usuario1"></div>
+
+    <img id="imagen2" src="first.jpg"/>
+    <div id="usuario2"></div>
+
+    <img id="imagen3" src="first.jpg"/>
+    <div id="usuario3"></div>
+
+    <img id="imagen4" src="first.jpg"/>
+    <div id="usuario4"></div>
+
+</div>
+
+<div id="detalleUsuario">
+    <img id="imagenDetalle" src="first.jpg"/>
+    <div id="nombreDetalle"></div>
+    <div id="edadDetalle"></div>
+    <div id="nacionalidadDetalle"></div>
+</div>
+
+</body>
+</html>

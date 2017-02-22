@@ -1,0 +1,22 @@
+<!-- https://randomuser.me/ -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+$("button").click(function(){
+	$.ajax({
+		url: 'https://randomuser.me/api/',
+		dataType: 'json',
+		success: function(data) {
+			$('body').html('<pre>' + JSON.stringify(data,null,2)+ '</pre>');
+		}
+	});
+});
+});
+</script>
+</head>
+<body>
+<button>Ajax!</button>
+</body>

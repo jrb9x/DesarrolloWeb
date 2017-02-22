@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+$("button").click(function(){
+$("#div1").load("http://rest-service.guides.spring.io/greeting")
+});
+});
+</script>
+</head>
+<body>
+<div id="div1"></div><br>
+<button>Ajax!</button>
+</body>
