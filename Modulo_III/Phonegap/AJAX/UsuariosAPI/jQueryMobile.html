@@ -89,11 +89,12 @@
 
 <div data-role="page" id="pagefive">
     <div data-role="main" class="ui-content">
+        <form class="ui-filterable"><input id="myFilter" data-type="search"></form>
         <h2>Ordered List:</h2>
-        <ol data-role="listview" data-inset = "true">
-        <li><a href="#">List Item</a></li>
-        <li><a href="#">List Item</a></li>
-        <li><a href="#">List Item</a></li>
+        <ol data-role="listview" data-inset="true" data-filter="true" data-input="#myFilter">
+            <li><a href="#">Musica</a></li>
+            <li><a href="#">Peliculas</a></li>
+            <li><a href="#">Videojuegos</a></li>
         </ol>
         <h2>Unordered List:</h2>
         <ul data-role="listview">
